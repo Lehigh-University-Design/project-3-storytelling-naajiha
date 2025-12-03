@@ -1,14 +1,26 @@
 // Cycle System - Interactive video loop system
-let clickCount = 0;
 const maxClicks = 10;
 let videoElements = [];
 let panelElement = null;
 let cycleButton = null;
 let breakCycleButton = null;
 
+// Get click count from localStorage
+function getClickCount() {
+    return parseInt(localStorage.getItem('cycleClickCount') || '0');
+}
+
+// Save click count to localStorage
+function saveClickCount(count) {
+    localStorage.setItem('cycleClickCount', count.toString());
+}
+
 // Handle break cycle button click
 function handleBreakCycle() {
+    const clickCount = getClickCount();
     if (clickCount >= maxClicks) {
+        // Clear the cycle state when breaking the cycle
+        localStorage.removeItem('cycleClickCount');
         window.location.href = 'page12.html';
     }
 }
@@ -19,13 +31,44 @@ document.addEventListener('DOMContentLoaded', function() {
     cycleButton = document.getElementById('cycle-button');
     breakCycleButton = document.getElementById('break-cycle-button');
     
+    // Restore state from localStorage
+    const clickCount = getClickCount();
+    
+    // If we have clicks, restore videos and button state
+    if (clickCount > 0) {
+        // Restore videos based on the click count
+        // First video always exists
+        addRandomVideo();
+        
+        // For subsequent clicks, restore based on the pattern
+        for (let i = 2; i <= clickCount; i++) {
+            const addChance = Math.min(0.3 + ((i - 1) * 0.1), 0.9);
+            // Use a deterministic seed based on click count to roughly match previous state
+            const seed = (clickCount * 7 + i * 13) % 100 / 100;
+            if (seed < addChance) {
+                addRandomVideo();
+            }
+        }
+        
+        // Show break cycle button if needed
+        if (clickCount >= maxClicks) {
+            showBreakCycleButton();
+            if (cycleButton) {
+                cycleButton.style.pointerEvents = 'none';
+                cycleButton.style.opacity = '0.5';
+            }
+        }
+    }
+    
     if (cycleButton) {
         cycleButton.addEventListener('click', handleCycleClick);
     }
 });
 
 function handleCycleClick() {
+    let clickCount = getClickCount();
     clickCount++;
+    saveClickCount(clickCount);
     
     // Add first video on first click
     if (clickCount === 1) {
@@ -45,6 +88,14 @@ function handleCycleClick() {
             cycleButton.style.pointerEvents = 'none';
             cycleButton.style.opacity = '0.5';
         }
+    }
+    
+    // Toggle between page10.html and page11.html
+    const currentPage = window.location.pathname.split('/').pop();
+    if (currentPage === 'page10.html') {
+        window.location.href = 'page11.html';
+    } else if (currentPage === 'page11.html') {
+        window.location.href = 'page10.html';
     }
 }
 
