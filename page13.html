@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- CSS Refs -->
+    <link type="text/css" href="css/styles.css" rel="stylesheet"/>
+
+    <!-- Title -->
+    <title>Design Project - Resources</title>
+
+    <style>
+        .resources-container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 2rem;
+            margin: 0 auto;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 120px;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+        }
+
+        .resource-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .resource-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+            word-break: break-all;
+            margin-top: auto;
+            transition: color 0.2s ease;
+        }
+
+        .resource-link:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        .resource-link:visited {
+            color: #551a8b;
+        }
+
+        @media (max-width: 768px) {
+            .resources-container {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .resource-card {
+                padding: 1.25rem;
+                min-height: 100px;
+            }
+
+            .resource-title {
+                font-size: 18px;
+            }
+
+            .resource-link {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resources-container {
+                width: 98%;
+                padding: 1rem;
+            }
+
+            .resources-grid {
+                gap: 0.75rem;
+                margin-top: 1rem;
+            }
+
+            .resource-card {
+                padding: 1rem;
+                min-height: 90px;
+            }
+
+            .resource-title {
+                font-size: 16px;
+            }
+
+            .resource-link {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress-orb"></div>
+            <div class="progress-bar-content">
+                <div class="progress-segments" id="progress-segments"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="container">
+        <div class="panel">
+            <div class="resources-container">
+                <h1 style="text-align: center; font-size: 32px; margin-bottom: 1rem; color: #000000;">Resources</h1>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-title">Socialism</div>
+                        <a href="https://frso.org/" target="_blank" rel="noopener noreferrer" class="resource-link">https://frso.org/</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-title">Black Lives Matter</div>
+                        <a href="https://blacklivesmatter.com/" target="_blank" rel="noopener noreferrer" class="resource-link">https://blacklivesmatter.com/</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-title">Indigenous Peoples</div>
+                        <a href="https://www.landislife.org/" target="_blank" rel="noopener noreferrer" class="resource-link">https://www.landislife.org/</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-title">Palestine</div>
+                        <a href="https://palestinecampaign.org/" target="_blank" rel="noopener noreferrer" class="resource-link">https://palestinecampaign.org/</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-title">Congo</div>
+                        <a href="https://friendsofthecongo.org/movement-building/" target="_blank" rel="noopener noreferrer" class="resource-link">https://friendsofthecongo.org/movement-building/</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-title">Sudan</div>
+                        <a href="https://sdnrlf.com/" target="_blank" rel="noopener noreferrer" class="resource-link">https://sdnrlf.com/</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-title">U.S. Immigration and Customs Enforcement</div>
+                        <a href="https://www.detentionwatchnetwork.org/" target="_blank" rel="noopener noreferrer" class="resource-link">https://www.detentionwatchnetwork.org/</a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="arrow-button" onclick="window.location.href='index.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

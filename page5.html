@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- CSS Refs -->
+    <link type="text/css" href="css/styles.css" rel="stylesheet"/>
+
+    <!-- Title -->
+    <title>Design Project - Page 5</title>
+
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress-orb"></div>
+            <div class="progress-bar-content">
+                <div class="progress-segments" id="progress-segments"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="container">
+        <div class="panel">
+            <!-- Choice Buttons (hidden until video ends) -->
+            <div class="choice-container" id="choice-container" style="display: none;">
+                <div class="choice-buttons">
+                    <div class="choice-item">
+                        <button class="choice-button" onclick="window.location.href='page6.html'">
+                            <span class="choice-label">Bathroom</span>
+                            <div class="choice-rectangle"></div>
+                        </button>
+                    </div>
+                    <div class="choice-item">
+                        <button class="choice-button" onclick="window.location.href='page7.html'">
+                            <span class="choice-label">Go to Work</span>
+                            <div class="choice-rectangle"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="choice-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-arc"></div>
+                </div>
+            </div>
+            
+            <div class="frame" id="video-frame">
+                <video class="video" id="video-player" src="video/4.mp4" controls></video>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+    <script>
+        // Show choice buttons and hide video when video ends
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('video-player');
+            const videoFrame = document.getElementById('video-frame');
+            const choiceContainer = document.getElementById('choice-container');
+            const arrowButton = document.getElementById('arrow-button');
+            
+            if (video && choiceContainer && videoFrame) {
+                video.addEventListener('ended', function() {
+                    // Hide the video frame
+                    videoFrame.style.display = 'none';
+                    // Show the choice buttons
+                    choiceContainer.style.display = 'flex';
+                    // Hide the arrow button
+                    if (arrowButton) {
+                        arrowButton.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

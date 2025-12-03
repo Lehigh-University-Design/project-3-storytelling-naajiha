@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- CSS Refs -->
+    <link type="text/css" href="css/styles.css" rel="stylesheet"/>
+
+    <!-- Title -->
+    <title>Design Project - Bathroom</title>
+
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .start-button {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            border: 3px solid #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                        0 0 0 4px rgba(255, 255, 255, 0.2),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            z-index: 10;
+            animation: bounce 2s infinite;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .start-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4),
+                        0 0 0 6px rgba(255, 255, 255, 0.3),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+            background: linear-gradient(135deg, #ff8e8e, #ff6b9d);
+        }
+
+        .start-button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .video-overlay {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 28px;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 24px;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Mobile responsive styles for start button */
+        @media (max-width: 768px) {
+            .start-button {
+                padding: 8px 16px;
+                font-size: 14px;
+                bottom: 0.75rem;
+                right: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .start-button {
+                padding: 6px 12px;
+                font-size: 12px;
+                bottom: 0.5rem;
+                right: 0.5rem;
+                border-width: 2px;
+                border-radius: 15px;
+            }
+            
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-3px);
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress-orb"></div>
+            <div class="progress-bar-content">
+                <div class="progress-segments" id="progress-segments"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="container">
+        <div class="panel">
+            <div class="frame">
+                <h3>You were in the bathroom too long and got fired for being late to work</h3>
+                
+            </div>
+            <button class="start-button" onclick="window.location.href='page5.html'">
+                try again
+            </button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
